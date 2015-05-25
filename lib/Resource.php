@@ -218,7 +218,7 @@ class Resource implements \ArrayAccess
      */
     protected function getEmbeddedValue($name)
     {
-        if ( !is_object($this->embedded[$name])) {
+        if ( !is_scalar($this->embedded[$name]) && !is_object($this->embedded[$name])) {
             if (is_integer(key($this->embedded[$name])) || empty($this->embedded[$name])) {
                 $this->embedded[$name] = new ResourceCollection($this->client, $this->embedded[$name]);
             } else {
