@@ -1,5 +1,5 @@
 {
-    "name": "ekino/hal-client",
+    "name": "ddelbondio/hal-client",
     "description": "HalClient",
     "keywords": ["hal", "Hypermedia"],
     "homepage": "https://github.com/ekino/php-hal-client",
