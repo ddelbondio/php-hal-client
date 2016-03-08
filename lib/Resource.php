@@ -253,15 +253,16 @@ class Resource implements \ArrayAccess
      *
      * @param Link  $link
      * @param array $variables Required if the link is templated
+     * @param array $headers Additional HTTP Headers
      *
      * @return Resource
      *
      * @throws \RuntimeException When call with property "href" of Link is empty and sets variables
      *                           Or response server is invalid
      */
-    public function getResource(Link $link, array $variables = array())
+    public function getResource(Link $link, array $variables = array(), array $headers = array())
     {
-        $response = $this->client->get($link->getHref($variables));
+        $response = $this->client->get($link->getHref($variables), $headers);
 
         if (!$response instanceof HttpResponse) {
             throw new \RuntimeException(sprintf('HttpClient does not return a valid HttpResponse object, given: %s', $response));
